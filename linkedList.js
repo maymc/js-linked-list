@@ -18,21 +18,34 @@ function linkedListGenerator(){
     }
 
     getHead = () => {
-        console.log("head: " + head);
+        console.log("head: " , head);
         return head;
     };
 
     getTail = () => {
-        console.log("tail: " + tail);
+        console.log("tail: " , tail);
         return tail;
     };
 
     add = (value) => {
+        //create a new node containing a value and next pointer
         const myNode = new Node;
-        myNode.value = value;
-        myNode.next = null;
-        myNode.tail = null;
-        return myNode;
+
+        //If empty list (no nodes yet) and head points to null; head and tails should point to same first node
+        if(getHead() === null){
+            head = myNode;
+            tail = myNode;
+            myNode.value = value;
+            myNode.next = null;
+            return myNode;
+        }
+        else{
+            myNode.value = value;
+            myNode.next = null;
+            tail = myNode;
+            return myNode;
+        }
+
     };
 
     get = () => {};
