@@ -5,28 +5,36 @@
  */
 function linkedListGenerator(){
 
+    //global variables
+    let head = null;    //first object in list
+    let tail = null;    //last object in list
+
+    //A node has a data value and the next node it points to
     class Node{
         constructor(){
-            this.head = null;
-            this.tail = null;
+            this.value = undefined;
+            this.next = null;
         }
     }
 
-    const myNode = new Node;
-
     getHead = () => {
-        console.log("myNode.head: " + myNode.head);
-        return myNode.head;
+        console.log("head: " + head);
+        return head;
     };
 
     getTail = () => {
-        console.log("myNode.tail: " + myNode.tail);
-        return myNode.tail;
+        console.log("tail: " + tail);
+        return tail;
     };
-    
-    add = () => {
 
+    add = (value) => {
+        const myNode = new Node;
+        myNode.value = value;
+        myNode.next = null;
+        myNode.tail = null;
+        return myNode;
     };
+
     get = () => {};
     remove = () => {};
     insert = () => {};
