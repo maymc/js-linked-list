@@ -126,19 +126,22 @@ function linkedListGenerator() {
         return false;
       }
     }
-    // else{
-    //   while()
-    // }
   };
 
-  // function get(number) {
-  //   if (number === 0) {
-  //     return this.getTail();
-  //   }
-  // }
+  const remove = number => {
+    console.log("REMOVE - Want to remove this node:", get(number));
+    console.log("REMOVE - This is the previous node", get(number - 1));
 
-  const remove = () => {};
-  const insert = () => {};
+    if (number > 0 && number < length) {
+      //Set the previous node's next to point to the node to be removed's next
+      let previousNode = get(number - 1);
+      let currentNode = get(number);
+      previousNode.next = currentNode.next;
+    } else {
+      return false;
+    }
+  };
+  const insert = (value, number) => {};
 
   return {
     getHead: getHead,
