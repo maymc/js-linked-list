@@ -82,15 +82,21 @@ function linkedListGenerator() {
     console.log("GET - head: ", head);
     console.log("GET - tail: ", tail);
     console.log("GET - length: " + length);
+
+    //If the number is 0, head is the node
     if (number === 0) {
       console.log("******* You are getting head node *******");
       console.log("Head: ", head);
       return head;
-    } else if (number === length) {
+    }
+    //If the number is length - 1, tail is the node
+    else if (number === length - 1) {
       console.log("******* You are getting tail node ********");
       console.log("Tail: ", tail);
       return tail;
-    } else {
+    }
+    //Else, number is not for the head or tail node, then it is in between
+    else {
       console.log("******* Not getting HEAD or TAIL *******");
       let tempLength = 1;
       let nextNode = head.next;
@@ -101,8 +107,8 @@ function linkedListGenerator() {
         console.log("nextNode: ", nextNode);
         return nextNode;
       }
-      //Else if the number is not the head, the tail, or 1, the node is somewhere between
-      else if (number !== 0 && number !== 1 && number !== length) {
+      //Else if the number is referrig to a node between the node after head and the tail
+      else if (number !== 1 && number < length && number > 0) {
         console.log("tempLength before: ", tempLength);
 
         while (tempLength !== number) {
@@ -114,6 +120,10 @@ function linkedListGenerator() {
         }
         console.log("nextNode: ", nextNode);
         return nextNode;
+      }
+      //Else number is less than 0 or greater than the length
+      else {
+        return false;
       }
     }
     // else{
