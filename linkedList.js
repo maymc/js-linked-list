@@ -123,21 +123,51 @@ function linkedListGenerator() {
       }
       //Else number is less than 0 or greater than the length
       else {
+        console.log("Number doesn't exist.");
         return false;
       }
     }
   };
 
   const remove = number => {
+    console.log("ENTERED REMOVE METHOD - removing: ", number);
     console.log("REMOVE - Want to remove this node:", get(number));
     console.log("REMOVE - This is the previous node", get(number - 1));
 
+    //If node to remove is the head, set the new head to be the next node
+    if (number === 0) {
+      console.log("Removing head, this is head: ", head);
+      console.log("This is next node after head: ", head.next);
+      head = head.next;
+    }
+
     if (number > 0 && number < length) {
-      //Set the previous node's next to point to the node to be removed's next
-      let previousNode = get(number - 1);
+      //Set the previous node's next to point to the node to be removed's next. The node to remove will disappear after there is no reference to it
       let currentNode = get(number);
+      console.log("currentNode's next: ", currentNode.next);
+
+      let previousNode = get(number - 1);
+      console.log("previousNode's next: ", previousNode.next);
+
       previousNode.next = currentNode.next;
+      console.log("NEW previousNode's next: ", previousNode.next);
+
+      //If the node removed was the last node/tail, move the tail to the previous node
+      console.log("current length: ", length);
+      if (number === length - 1) {
+        tail = previousNode;
+        console.log("Tail after remove: ", tail);
+      }
+
+      //Decrease the length since a node was removed
+      length--;
+      console.log("new length: ", length);
+
+      console.log("current tail: ", tail);
+
+      console.log("END REMOVE METHOD");
     } else {
+      console.log("NUMBER DOESN'T EXIST. END REMOVE METHOD");
       return false;
     }
   };
