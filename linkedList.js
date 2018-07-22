@@ -29,8 +29,8 @@ function linkedListGenerator() {
   };
 
   const add = value => {
+    console.log("ENTERED ADD METHOD");
     //create a new node containing a value and next pointer
-
     const myNode = new Node();
 
     //If empty list (no nodes yet) and head points to null; head and tails should point to same first node
@@ -70,6 +70,7 @@ function linkedListGenerator() {
       tail = myNode;
       console.log("Head after 'else': ", head);
       console.log("Tail after 'else': ", tail);
+      console.log("END ADD METHOD");
       console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
       return myNode;
@@ -77,7 +78,7 @@ function linkedListGenerator() {
   };
 
   const get = number => {
-    console.log("******************************");
+    console.log("ENTER GET METHOD");
     console.log("GET - number: ", number);
     console.log("GET - head: ", head);
     console.log("GET - tail: ", tail);
@@ -127,6 +128,7 @@ function linkedListGenerator() {
         return false;
       }
     }
+    console.log("END GET METHOD");
   };
 
   const remove = number => {
@@ -171,7 +173,29 @@ function linkedListGenerator() {
       return false;
     }
   };
-  const insert = (value, number) => {};
+
+  const insert = (value, number) => {
+    console.log("ENTERED INSERT METHOD");
+    console.log("value is: " + value + ", insert position is: ", number);
+    console.log("Length at insert: ", length);
+
+    // //If adding to the end, number should be length+1; Add a node as usual
+    // if (number === length + 1) {
+    //   add(value); //gets added to the end
+    //   console.log("This is the added node: ", get(number - 1));
+    // }
+    // //Else if adding it to the front, reassign head and head.next
+    // else {
+    //   console.log("Current node at insert position: ", get(number));
+    //   add(value);
+    // }
+
+    //If the number is greater than the list's length
+    if (number > length || number < 0) {
+      console.log("END INSERT METHOD");
+      return false;
+    }
+  };
 
   return {
     getHead: getHead,
